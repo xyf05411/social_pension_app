@@ -137,7 +137,7 @@ class PensionResult {
   final double totalMonthlyPension; // 合计月养老金
   final double provinceBase; // 当地计发基数
   final double indexedSalary; // 本人指数化月平均工资
-  final int finalYears; // 最终缴费年限
+  final double finalYears; // 最终缴费年限
   final double finalAccountBalance; // 退休时个人账户余额
 
   PensionResult({

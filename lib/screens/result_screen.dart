@@ -30,7 +30,7 @@ class ResultDetailScreen extends StatelessWidget {
         padding: const EdgeInsets.all(16),
         children: [
           // ============ 退休信息卡片 ============
-          _sectionTitle('🎯 退休时间'),
+          _sectionTitle(context, '🎯 退休时间'),
           Card(
             color: theme.colorScheme.primaryContainer,
             child: Padding(
@@ -121,7 +121,7 @@ class ResultDetailScreen extends StatelessWidget {
           const SizedBox(height: 24),
 
           // ============ 养老金卡片 ============
-          _sectionTitle('💰 预估月养老金'),
+          _sectionTitle(context, '💰 预估月养老金'),
           Card(
             color: theme.colorScheme.tertiaryContainer,
             child: Padding(
@@ -184,7 +184,7 @@ class ResultDetailScreen extends StatelessWidget {
           const SizedBox(height: 24),
 
           // ============ 社保月缴费 ============
-          _sectionTitle('📊 当前每月社保缴费'),
+          _sectionTitle(context, '📊 当前每月社保缴费'),
           Card(
             child: Padding(
               padding: const EdgeInsets.all(16),
@@ -308,7 +308,7 @@ class ResultDetailScreen extends StatelessWidget {
     );
   }
 
-  Widget _sectionTitle(String text) {
+  Widget _sectionTitle(BuildContext context, String text) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 8, left: 4),
       child: Text(text,

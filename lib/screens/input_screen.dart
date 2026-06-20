@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../main.dart';
 import '../models/models.dart';
-import '../services/pension_calculator.dart';
 import 'result_screen.dart';
 
 class InputScreen extends StatefulWidget {
@@ -24,6 +23,10 @@ class _InputScreenState extends State<InputScreen> {
   final _yearsController = TextEditingController(text: '0');
   final _balanceController = TextEditingController(text: '0');
 
+  // 快速输入模式：按年龄输入
+  bool _useAgeInput = false;
+  final _ageController = TextEditingController(text: '30');
+
   // Province picker state
   List<String> _provinces = [];
 
@@ -44,14 +47,18 @@ class _InputScreenState extends State<InputScreen> {
     _salaryController.dispose();
     _yearsController.dispose();
     _balanceController.dispose();
+    _ageController.dispose();
     super.dispose();
   }
 
   void _calculate() {
     if (!_formKey.currentState!.validate()) return;
 
+    // 快速模式：从年龄推算出生日期
+    final birthDate = _useAgeInput ? _derivedBirthDate() : _birthDate;
+
     final input = UserInput(
-      birthDate: _birthDate,
+      birthDate: birthDate,
       gender: _gender,
       workerType: _workerType,
       province: _province,
@@ -110,18 +117,101 @@ class _InputScreenState extends State<InputScreen> {
             // ============ 基本信息 ============
             _sectionTitle('👤 基本信息'),
 
-            // 出生日期
+            // 输入模式切换
             Card(
-              child: ListTile(
-                leading: const Icon(Icons.calendar_today),
-                title: const Text('出生日期'),
-                subtitle: Text(
-                  '${_birthDate.year}年${_birthDate.month}月${_birthDate.day}日',
-                ),
-                trailing: const Icon(Icons.edit),
-                onTap: _pickDate,
+              child: SwitchListTile(
+                secondary: const Icon(Icons.speed),
+                title: const Text('快速模式（按年龄输入）'),
+                subtitle: Text(_useAgeInput
+                    ? '输入当前年龄，自动推算出生年份'
+                    : '通过出生日期精确计算'),
+                value: _useAgeInput,
+                onChanged: (v) => setState(() => _useAgeInput = v),
               ),
             ),
+            const SizedBox(height: 8),
+
+            // 出生日期 / 年龄输入
+            if (_useAgeInput)
+              Card(
+                child: Padding(
+                  padding: const EdgeInsets.all(16),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        children: [
+                          const Icon(Icons.person, size: 20),
+                          const SizedBox(width: 8),
+                          Text('当前年龄', style: theme.textTheme.titleSmall),
+                          const Spacer(),
+                          Text(
+                            '推算出生：${_derivedBirthDate().year}年',
+                            style: theme.textTheme.bodySmall?.copyWith(
+                                color: theme.colorScheme.primary),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 8),
+                      Row(
+                        children: [
+                          SizedBox(
+                            width: 100,
+                            child: TextFormField(
+                              controller: _ageController,
+                              keyboardType: TextInputType.number,
+                              textAlign: TextAlign.center,
+                              style: theme.textTheme.headlineMedium?.copyWith(
+                                  fontWeight: FontWeight.bold,
+                                  color: theme.colorScheme.primary),
+                              decoration: const InputDecoration(
+                                border: OutlineInputBorder(),
+                                isDense: true,
+                              ),
+                              validator: (v) {
+                                final age = int.tryParse(v ?? '');
+                                if (age == null || age < 16 || age > 70) {
+                                  return '16-70之间';
+                                }
+                                return null;
+                              },
+                              onChanged: (_) => setState(() {}),
+                            ),
+                          ),
+                          const SizedBox(width: 12),
+                          Text('岁', style: theme.textTheme.titleLarge),
+                        ],
+                      ),
+                      const SizedBox(height: 4),
+                      Slider(
+                        value: (int.tryParse(_ageController.text) ?? 30)
+                            .clamp(16, 70)
+                            .toDouble(),
+                        min: 16,
+                        max: 70,
+                        divisions: 54,
+                        label: '${int.tryParse(_ageController.text) ?? 30}岁',
+                        onChanged: (v) {
+                          _ageController.text = v.round().toString();
+                          setState(() {});
+                        },
+                      ),
+                    ],
+                  ),
+                ),
+              )
+            else
+              Card(
+                child: ListTile(
+                  leading: const Icon(Icons.calendar_today),
+                  title: const Text('出生日期'),
+                  subtitle: Text(
+                    '${_birthDate.year}年${_birthDate.month}月${_birthDate.day}日',
+                  ),
+                  trailing: const Icon(Icons.edit),
+                  onTap: _pickDate,
+                ),
+              ),
             const SizedBox(height: 8),
 
             // 性别
@@ -323,6 +413,14 @@ class _InputScreenState extends State<InputScreen> {
         ),
       ),
     );
+  }
+
+  /// 从当前年龄推算出生日期（精确到年，月份取1月1日）
+  DateTime _derivedBirthDate() {
+    final age = int.tryParse(_ageController.text) ?? 30;
+    final now = DateTime.now();
+    final birthYear = now.year - age;
+    return DateTime(birthYear, 1, 1);
   }
 
   Future<void> _pickDate() async {
