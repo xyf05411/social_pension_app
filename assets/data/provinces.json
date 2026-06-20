@@ -1,0 +1,276 @@
+{
+  "provinces": {
+    "北京": {
+      "code": "110000",
+      "pension_base_2024": 11883,
+      "pension_base_2025": 12183,
+      "social_insurance": {
+        "pension_personal": 0.08,
+        "pension_company": 0.16,
+        "medical_personal": 0.02,
+        "medical_company": 0.098,
+        "unemployment_personal": 0.005,
+        "unemployment_company": 0.005,
+        "injury_company": 0.004,
+        "maternity_company": 0.008
+      },
+      "min_base_2025": 6821,
+      "max_base_2025": 35283
+    },
+    "上海": {
+      "code": "310000",
+      "pension_base_2024": 12183,
+      "pension_base_2025": 12307,
+      "social_insurance": {
+        "pension_personal": 0.08,
+        "pension_company": 0.16,
+        "medical_personal": 0.02,
+        "medical_company": 0.10,
+        "unemployment_personal": 0.005,
+        "unemployment_company": 0.005,
+        "injury_company": 0.003,
+        "maternity_company": 0.01
+      },
+      "min_base_2025": 7384,
+      "max_base_2025": 36921
+    },
+    "广东": {
+      "code": "440000",
+      "pension_base_2024": 9028,
+      "pension_base_2025": 9307,
+      "social_insurance": {
+        "pension_personal": 0.08,
+        "pension_company": 0.14,
+        "medical_personal": 0.02,
+        "medical_company": 0.06,
+        "unemployment_personal": 0.002,
+        "unemployment_company": 0.008,
+        "injury_company": 0.002,
+        "maternity_company": 0.005
+      },
+      "min_base_2025": 5284,
+      "max_base_2025": 26421
+    },
+    "深圳": {
+      "code": "440300",
+      "pension_base_2024": 11010,
+      "pension_base_2025": 11181,
+      "social_insurance": {
+        "pension_personal": 0.08,
+        "pension_company": 0.14,
+        "medical_personal": 0.02,
+        "medical_company": 0.06,
+        "unemployment_personal": 0.002,
+        "unemployment_company": 0.008,
+        "injury_company": 0.002,
+        "maternity_company": 0.005
+      },
+      "min_base_2025": 4492,
+      "max_base_2025": 33666
+    },
+    "江苏": {
+      "code": "320000",
+      "pension_base_2024": 8613,
+      "pension_base_2025": 8785,
+      "social_insurance": {
+        "pension_personal": 0.08,
+        "pension_company": 0.16,
+        "medical_personal": 0.02,
+        "medical_company": 0.08,
+        "unemployment_personal": 0.005,
+        "unemployment_company": 0.005,
+        "injury_company": 0.003,
+        "maternity_company": 0.008
+      },
+      "min_base_2025": 4879,
+      "max_base_2025": 24393
+    },
+    "浙江": {
+      "code": "330000",
+      "pension_base_2024": 8310,
+      "pension_base_2025": 8518,
+      "social_insurance": {
+        "pension_personal": 0.08,
+        "pension_company": 0.14,
+        "medical_personal": 0.02,
+        "medical_company": 0.085,
+        "unemployment_personal": 0.005,
+        "unemployment_company": 0.005,
+        "injury_company": 0.003,
+        "maternity_company": 0.005
+      },
+      "min_base_2025": 4812,
+      "max_base_2025": 24060
+    },
+    "山东": {
+      "code": "370000",
+      "pension_base_2024": 7678,
+      "pension_base_2025": 7908,
+      "social_insurance": {
+        "pension_personal": 0.08,
+        "pension_company": 0.16,
+        "medical_personal": 0.02,
+        "medical_company": 0.08,
+        "unemployment_personal": 0.003,
+        "unemployment_company": 0.007,
+        "injury_company": 0.003,
+        "maternity_company": 0.01
+      },
+      "min_base_2025": 4416,
+      "max_base_2025": 22078
+    },
+    "四川": {
+      "code": "510000",
+      "pension_base_2024": 8079,
+      "pension_base_2025": 8321,
+      "social_insurance": {
+        "pension_personal": 0.08,
+        "pension_company": 0.16,
+        "medical_personal": 0.02,
+        "medical_company": 0.07,
+        "unemployment_personal": 0.005,
+        "unemployment_company": 0.005,
+        "injury_company": 0.003,
+        "maternity_company": 0.008
+      },
+      "min_base_2025": 4511,
+      "max_base_2025": 22557
+    },
+    "湖北": {
+      "code": "420000",
+      "pension_base_2024": 7770,
+      "pension_base_2025": 7925,
+      "social_insurance": {
+        "pension_personal": 0.08,
+        "pension_company": 0.16,
+        "medical_personal": 0.02,
+        "medical_company": 0.08,
+        "unemployment_personal": 0.003,
+        "unemployment_company": 0.007,
+        "injury_company": 0.003,
+        "maternity_company": 0.008
+      },
+      "min_base_2025": 4494,
+      "max_base_2025": 22467
+    },
+    "河南": {
+      "code": "410000",
+      "pension_base_2024": 6401,
+      "pension_base_2025": 6593,
+      "social_insurance": {
+        "pension_personal": 0.08,
+        "pension_company": 0.16,
+        "medical_personal": 0.02,
+        "medical_company": 0.065,
+        "unemployment_personal": 0.003,
+        "unemployment_company": 0.007,
+        "injury_company": 0.003,
+        "maternity_company": 0.008
+      },
+      "min_base_2025": 3756,
+      "max_base_2025": 18780
+    },
+    "福建": {
+      "code": "350000",
+      "pension_base_2024": 7526,
+      "pension_base_2025": 7752,
+      "social_insurance": {
+        "pension_personal": 0.08,
+        "pension_company": 0.16,
+        "medical_personal": 0.02,
+        "medical_company": 0.08,
+        "unemployment_personal": 0.005,
+        "unemployment_company": 0.005,
+        "injury_company": 0.003,
+        "maternity_company": 0.008
+      },
+      "min_base_2025": 4433,
+      "max_base_2025": 22164
+    },
+    "湖南": {
+      "code": "430000",
+      "pension_base_2024": 7417,
+      "pension_base_2025": 7639,
+      "social_insurance": {
+        "pension_personal": 0.08,
+        "pension_company": 0.16,
+        "medical_personal": 0.02,
+        "medical_company": 0.08,
+        "unemployment_personal": 0.003,
+        "unemployment_company": 0.007,
+        "injury_company": 0.003,
+        "maternity_company": 0.008
+      },
+      "min_base_2025": 4027,
+      "max_base_2025": 20133
+    },
+    "安徽": {
+      "code": "340000",
+      "pension_base_2024": 7688,
+      "pension_base_2025": 7842,
+      "social_insurance": {
+        "pension_personal": 0.08,
+        "pension_company": 0.16,
+        "medical_personal": 0.02,
+        "medical_company": 0.065,
+        "unemployment_personal": 0.005,
+        "unemployment_company": 0.005,
+        "injury_company": 0.003,
+        "maternity_company": 0.008
+      },
+      "min_base_2025": 4090,
+      "max_base_2025": 20448
+    },
+    "重庆": {
+      "code": "500000",
+      "pension_base_2024": 7750,
+      "pension_base_2025": 7982,
+      "social_insurance": {
+        "pension_personal": 0.08,
+        "pension_company": 0.16,
+        "medical_personal": 0.02,
+        "medical_company": 0.085,
+        "unemployment_personal": 0.005,
+        "unemployment_company": 0.005,
+        "injury_company": 0.003,
+        "maternity_company": 0.008
+      },
+      "min_base_2025": 4359,
+      "max_base_2025": 21795
+    },
+    "天津": {
+      "code": "120000",
+      "pension_base_2024": 9476,
+      "pension_base_2025": 9666,
+      "social_insurance": {
+        "pension_personal": 0.08,
+        "pension_company": 0.16,
+        "medical_personal": 0.02,
+        "medical_company": 0.10,
+        "unemployment_personal": 0.005,
+        "unemployment_company": 0.005,
+        "injury_company": 0.003,
+        "maternity_company": 0.008
+      },
+      "min_base_2025": 5013,
+      "max_base_2025": 25062
+    },
+    "陕西": {
+      "code": "610000",
+      "pension_base_2024": 7563,
+      "pension_base_2025": 7789,
+      "social_insurance": {
+        "pension_personal": 0.08,
+        "pension_company": 0.16,
+        "medical_personal": 0.02,
+        "medical_company": 0.08,
+        "unemployment_personal": 0.003,
+        "unemployment_company": 0.007,
+        "injury_company": 0.003,
+        "maternity_company": 0.008
+      },
+      "min_base_2025": 4319,
+      "max_base_2025": 21593
+    }
+  }
+}
